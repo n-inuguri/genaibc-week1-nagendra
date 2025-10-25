@@ -1,12 +1,12 @@
 # Quippy - Multi-Model Chat Assistant
 
-Meet Quippy, a versatile and witty chat assistant that combines the power of multiple Language Model providers (Groq and OpenAI) in an engaging Streamlit interface. This application demonstrates advanced LLM integration with a personality-driven approach to AI interaction.
+Meet Quippy, a versatile and witty chat assistant that combines the power of multiple Language Model providers (Groq and OpenAI) in an engaging Streamlit interface. This application demonstrates LLM integration with a personality-driven approach to AI interaction.
 
 What makes Quippy special:
 * 🎭 **Personality-Driven:** More than just a Q&A bot - Quippy brings charm and wit to every conversation
-* 🔄 **Multi-Provider Support:** Seamlessly switch between Groq's open-source models and OpenAI's GPT-5 series
-* 🎯 **Adaptive Behavior:** Smart parameter handling for different models while maintaining consistent personality
-* 🎪 **User-Friendly Interface:** Clean, intuitive Streamlit frontend with real-time model switching and configuration
+* 🔄 **Multi-Provider Support:** Switch between Groq's open-source models and OpenAI's GPT-5 series
+* 🎯 **Adaptive Behavior:** Parameter handling for different models while maintaining consistent personality
+* 🎪 **User-Friendly Interface:** Clean, intuitive Streamlit frontend with model switching and configuration
 
 ## 1\. Overview
 
@@ -17,14 +17,14 @@ This application showcases LLM integration with a focus on user experience and a
 * Smart handling of model-specific parameters and requirements
 * Web interface (for user interaction) using streamlit
 
-The application demonstrates how to create engaging AI assistants that go beyond simple Q&A by combining technical capabilities with personality-driven design. It handles complex tasks like provider switching, API management, and model-specific optimizations while maintaining a consistent and friendly user experience.
+The application demonstrates how to create engaging AI assistants by combining technical capabilities with personality-driven design.
 
 ## 2\. Features
 
   * **Multi-Provider Integration:** 
     * Groq API for access to open-source LLMs
     * OpenAI API for GPT-5 model series
-    * Automatic provider switching based on model selection
+    * Provider switching based on model selection
   
   * **Chatbot Personality - Meet Quippy!**
     * Witty and clever AI assistant with a unique personality
@@ -43,7 +43,7 @@ The application demonstrates how to create engaging AI assistants that go beyond
   
   * **Enhanced Configuration:**
     * Dual API key support (Groq and OpenAI)
-    * Adjustable temperature for response randomness
+    * Adjustable temperature for response randomness (Note: Temparature parameter is not considered for GPT 5 models)
     * Customizable maximum token length
     * Optional system prompt override
     * Chat history management with clear function
@@ -56,26 +56,24 @@ The application demonstrates how to create engaging AI assistants that go beyond
     * **OpenAI API:** For GPT-5 series models
   * **Streamlit:** For building the interactive web frontend.
   * **`python-dotenv`:** For loading environment variables (API keys).
-  * **`uv` (or `pip`, `conda`, `poetry`):** For virtual environment and dependency management.
+  * **`uv`** For virtual environment and dependency management.
 
 ## 4\. Setup and Installation
 
 ### 4.1. Prerequisites
 
-  * Python 3.x installed (In the workshop session, we specifically used Python 3.11)
+  * Python 3.13.9 
   * A Groq API key (sign up at `https://console.groq.com/` to get one).
+  * An Open AI API Key
 
 ### 4.2. Clone the Repository
 
 ``` bash
-git clone https://github.com/Andela-GenAI/genai-bootcamp
-cd week_1
+git clone https://github.com/n-inuguri/genaibc-week1-nagendra.git
 
 ```
 
 ### 4.3. Virtual Environment Setup
-
-In the workshop session, we primarily used `uv` for environment management. If you prefer `conda` or `poetry`, adjust the commands accordingly.
 
 #### Using `uv` (Recommended)
 
@@ -113,45 +111,6 @@ In the workshop session, we primarily used `uv` for environment management. If y
     
     ``` bash
     uv pip install -r requirements.txt
-    
-    ```
-
-#### Using `pip`
-
-1.  **Create a virtual environment:**
-    
-    ``` bash
-    python -m venv .venv
-    
-    ```
-
-2.  **Activate the virtual environment:**
-    
-      * **On macOS/Linux:**
-        
-        ``` bash
-        source .venv/bin/activate
-        
-        ```
-    
-      * **On Windows (PowerShell):**
-        
-        ``` bash
-        .venv\Scripts\Activate.ps1
-        
-        ```
-    
-      * **On Windows (Command Prompt):**
-        
-        ``` bash
-        .venv\Scripts\activate.bat
-        
-        ```
-
-3.  **Install dependencies:**
-    
-    ``` bash
-    pip install -r requirements.txt
     
     ```
 
@@ -221,36 +180,3 @@ This will open the application in your web browser. You can then:
 └── streamlit_app.py      # Streamlit web application
 
 ```
-
-## 7\. Extendability
-
-This application, while already featuring multiple providers and a unique personality, can be further enhanced. Here are some ideas for extending its functionality:
-
-  * **Enhanced Conversation History:**
-    * Implement persistent storage for chat histories
-    * Add conversation summarization
-    * Enable chat export/import functionality
-  
-  * **Additional LLM Providers:**
-    * Integrate Google's Gemini API
-    * Add Anthropic's Claude models
-    * Support for local LLM deployment
-  
-  * **Advanced Features:**
-    * Streaming responses for more dynamic interactions
-    * Voice input/output capabilities
-    * Image and document analysis support
-    * Multi-modal interactions
-  
-  * **User Experience:**
-    * User authentication and profile management
-    * Customizable themes and UI preferences
-    * Mobile-responsive design improvements
-    * Keyboard shortcuts and accessibility features
-  
-  * **Developer Features:**
-    * API endpoint for programmatic access
-    * Plugin system for extending functionality
-    * Advanced logging and analytics
-    * Comprehensive testing suite
-
