@@ -48,8 +48,10 @@ Remember: you're here to make learning and problem-solving fun while still being
         self.model = model
         self.conversation_history = []
         
-        # Initialize the appropriate client based on the model
-        self._initialize_client()
+    # NOTE: client initialization is performed lazily in `chat()` so that
+    # callers can instantiate LLMApp without requiring API keys (useful
+    # for UI code that only wants default values). The actual client will
+    # be created when a chat request is made.
 
     def _initialize_client(self):
         """Initialize the appropriate client based on the selected model"""
@@ -109,6 +111,13 @@ Remember: you're here to make learning and problem-solving fun while still being
                 "content": f"{user_message}"
             }
         )
+
+        # Ensure the client for the selected model is initialized (lazy init)
+        try:
+            self._initialize_client()
+        except Exception:
+            # Re-raise so callers (UI) can handle missing API key errors
+            raise
 
         # Get the appropriate client
         client = self._get_active_client()
