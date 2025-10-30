@@ -42,8 +42,11 @@ The application demonstrates how to create engaging AI assistants by combining t
       * GPT-5-nano
   
   * **Enhanced Configuration:**
-    * Dual API key support (Groq and OpenAI)
-    * Adjustable temperature for response randomness (Note: Temparature parameter is not considered for GPT 5 models)
+    * Smart API key management:
+      * Single adaptive API key input that changes based on selected provider
+      * Session-persistent API keys that remain across model switches
+      * Seamless provider switching without re-entering keys
+    * Adjustable temperature for response randomness (Note: Temperature parameter is not considered for GPT 5 models)
     * Customizable maximum token length
     * Optional system prompt override
     * Chat history management with clear function
@@ -151,9 +154,10 @@ streamlit run streamlit_app.py
 This will open the application in your web browser. You can then:
 
   * **Configure API Access:**
-    * Enter your Groq API Key (for Groq models)
-    * Enter your OpenAI API Key (for GPT-5 models)
-    * Keys can also be set in `.env`
+    * Enter your API key for the selected provider
+    * Key is automatically saved in session state
+    * Switch models freely without re-entering keys
+    * Keys can also be set in `.env` as fallback
   
   * **Choose Your Model:**
     * Select AI Provider (Groq or OpenAI)
